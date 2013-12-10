@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<state_machine>
+	<state type="start" id="setdown">
+		<condition flow_type="other">
+			<event id="waiter_coming" />
+			<next id="choose_food" />
+		</condition>
+	</state>
+</state_machine>

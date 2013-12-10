@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<state_machine>
+	<state type="start" id="1" name="setdown">
+		<condition flow_type="other">
+			<event>waiter_coming</event>
+			<next>choose_food</next>
+		</condition>
+	</state>
+	<state type="process" id="2" name="choose_food">
+		<condition flow_type="other">
+			<event>choose_finish</event>
+			<next>wait_food</next>
+		</condition>
+	</state>
+	<state type="process" id="3" name="wait_food">
+		<condition flow_type="self">
+			<event>order_busy</event>
+		</condition>
+		<condition flow_type="other">
+			<event>food_coming</event>
+			<next>eat_food</next>
+		</condition>
+	</state>
+	<state type="process" id="4" name="eat_food">
+		<condition flow_type="self">
+			<event>food_coming</event>
+		</condition>
+		<condition flow_type="other">
+			<event>eat_up</event>
+			<next>wait_pay</next>
+		</condition>
+	</state>
+	<state type="process" id="5" name="wait_pay">
+		<condition flow_type="self">
+			<event>waiter_busy</event>
+		</condition>
+		<condition flow_type="other">
+			<event>waiter_coming</event>
+			<next>pay</next>
+		</condition>
+	</state>
+	<state type="process" id="6" name="pay">
+		<condition flow_type="other">
+			<event>pay_finish</event>
+			<next>can_leave</next>
+		</condition>
+	</state>
+	<state type="process" id="7" name="can_leave">
+		<condition flow_type="other">
+			<event>dress_up</event>
+			<next>leave</next>
+		</condition>
+	</state>
+</state_machine>
