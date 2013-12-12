@@ -93,8 +93,8 @@ public class MainFrame extends JFrame {
         initWindowBound();
     }
 
-    public MainFrame(ContainerInit init) {
-        this.init = init;
+    public MainFrame(OnMainFramePrepare init) {
+        this.mainFramePrepare = init;
         initWindowBound();
     }
 
@@ -138,17 +138,17 @@ public class MainFrame extends JFrame {
         setBounds(defaultX, defaultY, defaultWidth, defaultHeight);
 
         setResizable(true);
-        if (null != init) {
-            init.initContainerPanel(getContentPane());
+        if (null != mainFramePrepare) {
+            mainFramePrepare.init(getContentPane());
         }// end if
 
         addWindowListener(mWindowListener);
     }
 
-    private ContainerInit init = null;
+    private OnMainFramePrepare mainFramePrepare = null;
 
-    public interface ContainerInit {
-        public void initContainerPanel(Container container);
+    public interface OnMainFramePrepare {
+        public void init(Container container);
     }
 
 }

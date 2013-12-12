@@ -3,16 +3,11 @@ package com.demo.map;
 import java.awt.BorderLayout;
 import java.awt.Container;
 
-import javax.swing.JTextField;
-
 import org.lichsword.swing.Application;
-import org.lichsword.swing.MainFrame.ContainerInit;
+import org.lichsword.swing.MainFrame.OnMainFramePrepare;
 
-public class CoreApplication extends Application implements ContainerInit {
+public class CoreApplication extends Application implements OnMainFramePrepare {
 
-    /**
-     * @wbp.parser.entryPoint
-     */
     public static void main(String[] args) {
         CoreApplication application = new CoreApplication();
         application.run(application);
@@ -27,13 +22,7 @@ public class CoreApplication extends Application implements ContainerInit {
     }
 
     @Override
-    public void initContainerPanel(Container container) {
-        // JButton btnNewButton = new JButton("New button");
-        // container.add(btnNewButton, BorderLayout.CENTER);
-
-        JTextField textField = new JTextField();
-        container.add(textField, BorderLayout.WEST);
-        textField.setColumns(10);
+    public void init(Container container) {
 
         MapPanel mapPanel = new MapPanel();
         container.add(mapPanel, BorderLayout.CENTER);

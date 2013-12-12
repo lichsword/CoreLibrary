@@ -2,7 +2,7 @@ package org.lichsword.swing;
 
 import java.awt.EventQueue;
 
-import org.lichsword.swing.MainFrame.ContainerInit;
+import org.lichsword.swing.MainFrame.OnMainFramePrepare;
 
 public class Application {
 
@@ -16,7 +16,7 @@ public class Application {
         application.run();
     }
 
-    protected void run(final ContainerInit init) {
+    protected void run(final OnMainFramePrepare init) {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
