@@ -12,8 +12,20 @@ public class Math2D {
 
     }
 
-    public Point mid(Point a, Point b) {
+    /**
+     * 求两点的中间点
+     * 
+     * @param a
+     * @param b
+     * @return
+     */
+    public static Point mid(Point a, Point b) {
         return new Point((a.x + b.x) / 2, (a.y + b.y));
+    }
+
+    public static Point mid(Point... points) {
+
+        return null;
     }
 
 }
