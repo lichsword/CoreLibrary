@@ -15,6 +15,11 @@ import javax.swing.JFrame;
 public class Window extends JFrame {
 
     /**
+     * 
+     */
+    private static final long serialVersionUID = 3681214771336904570L;
+
+    /**
      * Launch the application.
      */
     public static void main(String[] args) {
