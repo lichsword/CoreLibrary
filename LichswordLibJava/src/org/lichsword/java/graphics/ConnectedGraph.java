@@ -45,9 +45,24 @@ public class ConnectedGraph extends MGraph {
     }
 
     /**
-     * 查找最小生成树，用于网络布线等需要通过全部顶点的最短路径。
+     * 使用默认的权值极限值 {@linkplain INFINITY}(65536)
      */
     public void findMinTree() {
+        findMinTree(INFINITY);
+    }
+
+    /**
+     * <p>
+     * <b>功能：</b>
+     * </p>
+     * <p>
+     * 在连通图中，查找最小生成树，适用于网络布线等需要通过全部顶点的最短路径。
+     * </p>
+     * 
+     * @param infinity
+     *            指定权值的极限值，推荐 65536
+     */
+    public void findMinTree(int infinity) {
 
         /**
          * 顶点下标
