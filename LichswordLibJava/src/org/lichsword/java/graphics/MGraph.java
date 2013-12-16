@@ -24,14 +24,14 @@ public class MGraph {
     public static void main(String[] args) {
         // create object.
         MGraph mGraph = new MGraph(4);
-        Matrix matrix = mGraph.getArcs();
+        Matrix matrix = mGraph.getEdges();
 
         // fill data
         Random random = new Random(System.currentTimeMillis());
         int[][] data = matrix.getData();
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length; j++) {
-                data[i][j] = random.nextInt(100);
+                data[i][j] = random.nextInt(100) + 1;
             }
         }
 
@@ -44,13 +44,7 @@ public class MGraph {
             }// end for
 
             System.out.println();
-            System.out.println("arcs:");
-            for (int i = 0; i < data.length; i++) {
-                for (int j = 0; j < data.length; j++) {
-                    System.out.print("" + data[i][j] + '\t');
-                }
-                System.out.println('\n');
-            }
+            mGraph.printEdges();
         }
     }
 
@@ -60,7 +54,7 @@ public class MGraph {
     protected int[] vertexs;
 
     // 边
-    protected Matrix arcs;
+    protected Matrix edges;
 
     /**
      * 顶点数目
@@ -87,21 +81,27 @@ public class MGraph {
             vertexs[i] = i;
         }// end for
 
-        arcs = new Matrix(numVertexs, INFINITY);
+        edges = new Matrix(numVertexs, INFINITY);
     }
 
     public int[] getVertexs() {
         return vertexs;
     }
 
-    public Matrix getArcs() {
-        return arcs;
+    public Matrix getEdges() {
+        return edges;
     }
 
-    /**
-     * 查找最小生成树，用于网络布线等需要通过全部顶点的最短路径。
-     */
-    public void findMinTree() {
-
+    public void printEdges() {
+        int[][] data = edges.getData();
+        System.out.println(">>>>>>>>>>>>>>>>");
+        System.out.println("edges:");
+        System.out.println(">>>>>>>>>>>>>>>>");
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data.length; j++) {
+                System.out.print("" + data[i][j] + '\t');
+            }
+            System.out.println();
+        }
     }
 }
