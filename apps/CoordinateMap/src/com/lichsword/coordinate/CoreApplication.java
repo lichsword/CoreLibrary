@@ -4,6 +4,7 @@ import java.awt.Container;
 
 import org.lichsword.swing.Application;
 import org.lichsword.swing.MainFrame.OnMainFramePrepare;
+import org.lichsword.swing.widgets.CoordinateView;
 import org.lichsword.swing.widgets.SheetView;
 
 public class CoreApplication extends Application implements OnMainFramePrepare {
@@ -18,6 +19,7 @@ public class CoreApplication extends Application implements OnMainFramePrepare {
 
     @Override
     public void init(Container container) {
+        container.add(new CoordinateView());
         container.add(new SheetView());
     }
 
