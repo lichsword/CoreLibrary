@@ -1,0 +1,13 @@
+package org.lichsword.swing.widgets;
+
+public class Toast {
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

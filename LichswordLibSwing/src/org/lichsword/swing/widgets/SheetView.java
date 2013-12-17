@@ -15,6 +15,8 @@ package org.lichsword.swing.widgets;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
@@ -39,6 +41,7 @@ public class SheetView extends JPanel {
     public SheetView() {
         super();
         setSize(800, 600);
+        addMouseEvent();
     }
 
     private final int CELL_WIDTH = 10;
@@ -68,6 +71,24 @@ public class SheetView extends JPanel {
 
     private void drawCoordinate(Graphics g) {
         // g.setColor(color)
+        // TODO
+    }
+
+    private void addMouseEvent() {
+        addMouseMotionListener(new MouseMotionListener() {
+
+            @Override
+            public void mouseMoved(MouseEvent event) {
+                // TODO Auto-generated method stub
+                System.out.println("x = " + event.getX() + ", y = " + event.getY());
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent event) {
+                // TODO Auto-generated method stub
+
+            }
+        });
     }
 
     /**
