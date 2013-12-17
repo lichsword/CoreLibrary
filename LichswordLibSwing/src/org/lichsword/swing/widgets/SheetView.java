@@ -18,6 +18,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import org.lichsword.swing.graphics.Colors;
+
 /**
  * 显示网格
  * 
@@ -57,14 +59,30 @@ public class SheetView extends JPanel {
         final int endX = panelWidth;
         final int endY = panelHeight;
 
-        // clear bg
-        g.setColor(new Color(CololrUtils.CANVAS_BG));
-        g.drawRect(0, 0, panelWidth, panelHeight);
+        drawBg(g, panelWidth, panelHeight);
 
+        drawSheet(g, startX, startY, endX, endY);
+
+        // super.paint(g);
+    }
+
+    private void drawCoordinate(Graphics g) {
+        // g.setColor(color)
+    }
+
+    /**
+     * 
+     * @param g
+     * @param startX
+     * @param startY
+     * @param endX
+     * @param endY
+     */
+    private void drawSheet(Graphics g, final int startX, final int startY, final int endX, final int endY) {
         // draw all vertical lines
         int curX = startX;
         while (curX <= endX) {
-            g.setColor(new Color(CololrUtils.CANVAS_VERTICAL_LINE));
+            g.setColor(Colors.GRAY_01);
 
             g.drawLine(curX, startY, curX, endY);
 
@@ -74,14 +92,24 @@ public class SheetView extends JPanel {
         // draw all horizontal lines
         int curY = startY;
         while (curY < endY) {
-            g.setColor(new Color(CololrUtils.CANVAS_HORIZONTAL_LINE));
+            g.setColor(Colors.GRAY_02);
 
             g.drawLine(startX, curY, endX, curY);
 
             curY += CELL_HEIHGT;
         }
+    }
 
-        // super.paint(g);
+    /**
+     * 
+     * @param g
+     * @param panelWidth
+     * @param panelHeight
+     */
+    private void drawBg(Graphics g, int panelWidth, int panelHeight) {
+        // clear bg
+        g.setColor(new Color(CololrUtils.CANVAS_BG));
+        g.drawRect(0, 0, panelWidth, panelHeight);
     }
 
     private class CololrUtils {

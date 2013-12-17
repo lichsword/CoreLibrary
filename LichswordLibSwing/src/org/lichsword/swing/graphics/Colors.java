@@ -10,5 +10,7 @@ public class Colors {
     public static final Color WHITE = new Color(org.lichsword.java.graphics.Color.WHITE);
     public static final Color BLACK = new Color(org.lichsword.java.graphics.Color.BLACK);
     public static final Color YELLOW = new Color(org.lichsword.java.graphics.Color.YELLOW);
+    public static final Color GRAY_01 = new Color(org.lichsword.java.graphics.Color.GRAY_01);
+    public static final Color GRAY_02 = new Color(org.lichsword.java.graphics.Color.GRAY_02);
 
 }
