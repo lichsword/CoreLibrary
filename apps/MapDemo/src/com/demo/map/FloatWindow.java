@@ -13,6 +13,13 @@ import java.awt.image.Kernel;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
+/**
+ * 磨砂玻璃效果。
+ * 
+ * @author wangyue.wy
+ * @data 2013-12-17
+ * 
+ */
 public class FloatWindow extends javax.swing.JFrame {
     boolean movieTf = false;
     Point mainP = new Point();
@@ -107,6 +114,7 @@ public class FloatWindow extends javax.swing.JFrame {
         this.jlb.setIcon(null); // 拖動時候將圖片去除
         Point p = this.getLocation();// 当鼠标拖动时获取窗口当前位置
         this.setLocation(p.x + evt.getX() - mainP.x, p.y + evt.getY() - mainP.y);
+        // this.selectBgimg();
     }
 
     private void jlbMouseMoved(java.awt.event.MouseEvent evt) {

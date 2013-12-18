@@ -13,4 +13,5 @@ public class Colors {
     public static final Color GRAY_01 = new Color(org.lichsword.java.graphics.Color.GRAY_01);
     public static final Color GRAY_02 = new Color(org.lichsword.java.graphics.Color.GRAY_02);
 
+    public static final Color YELLOW_JAVADOC = new Color(0xF9FAC0);
 }

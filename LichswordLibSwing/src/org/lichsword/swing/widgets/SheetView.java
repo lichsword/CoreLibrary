@@ -41,6 +41,7 @@ public class SheetView extends JPanel {
     public SheetView() {
         super();
         setSize(800, 600);
+        add(mTipDialog);
         addMouseEvent();
     }
 
@@ -49,6 +50,8 @@ public class SheetView extends JPanel {
 
     private final int CELL_START_X = 0;
     private final int CELL_START_Y = 0;
+
+    private final TipDialog mTipDialog = new TipDialog();
 
     @Override
     public void paint(Graphics g) {
@@ -66,12 +69,7 @@ public class SheetView extends JPanel {
 
         drawSheet(g, startX, startY, endX, endY);
 
-        // super.paint(g);
-    }
-
-    private void drawCoordinate(Graphics g) {
-        // g.setColor(color)
-        // TODO
+        super.paint(g);
     }
 
     private void addMouseEvent() {
@@ -79,8 +77,13 @@ public class SheetView extends JPanel {
 
             @Override
             public void mouseMoved(MouseEvent event) {
-                // TODO Auto-generated method stub
+                int x = event.getX();
+                int y = event.getY();
+
                 System.out.println("x = " + event.getX() + ", y = " + event.getY());
+                mTipDialog.setBounds(x, y, TipDialog.WIDTH, TipDialog.HEIGHT);
+                mTipDialog.setVisible(true);
+                SheetView.this.repaint();
             }
 
             @Override
