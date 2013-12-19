@@ -1,5 +1,12 @@
 package com.lichsword.t3d.lib1;
 
+/**
+ * 3D柱面坐标
+ * 
+ * @author wangyue.wy
+ * @data 2013-12-19
+ * 
+ */
 public class Polar3D {
 
     /**
