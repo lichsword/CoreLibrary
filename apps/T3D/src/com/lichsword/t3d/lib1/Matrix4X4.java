@@ -12,6 +12,20 @@ public class Matrix4X4 {
 
     float m[][] = new float[4][4];
 
+    public Matrix4X4() {
+
+    }
+
+    public Matrix4X4(float[] value) {
+        int index = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                this.m[i][j] = value[index];
+                index++;
+            }
+        }
+    }
+
     public float get00() {
         return m[0][0];
     }

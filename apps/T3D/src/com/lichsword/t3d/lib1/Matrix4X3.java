@@ -10,6 +10,20 @@ public class Matrix4X3 {
 
     }
 
+    public Matrix4X3() {
+
+    }
+
+    public Matrix4X3(float[] value) {
+        int index = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                m[i][j] = value[index];
+                index++;
+            }
+        }
+    }
+
     float m[][] = new float[4][3];
 
     public float get00() {
