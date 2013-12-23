@@ -3,7 +3,7 @@ public class ClassName {
     private static ClassName sInstance = null;
 
     public static ClassName getInstance() {
-        if (null == sInstance) {
+       if (null == sInstance) {
             synchronized (ClassName.class) {
                 if (null == sInstance) {
                     sInstance = new ClassName();

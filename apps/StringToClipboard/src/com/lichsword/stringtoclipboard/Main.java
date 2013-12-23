@@ -7,7 +7,11 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
@@ -18,6 +22,15 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
+        // args = new String[] { "-s", "hello, world" };
+        // args = new String[] { "-f", "log.txt" };
+        Main main = new Main();
+        main.run(args);
+
+    }
+
+    public void run(String[] args) {
+
         int length = args.length;
         String control = null;
         String content = null;
@@ -38,18 +51,26 @@ public class Main {
         case 2:
             control = args[0];
             content = args[1];
-            if (control.equals(CTR_STRING) || control.equals(CTR_FILE)) {
+            if (control.equals(CTR_STRING)) {
                 setSysClipboardText(content);
-            } else {
-                // TODO
-            }
+            } else if (control.equals(CTR_FILE)) {
+                String path = content;
+                if (!exist(path)) {
+                    File file = new File(System.getProperty("user.dir"));
+                    path = new File(file.getParent(), content).getAbsolutePath();
+                }// end if
+                content = readFile(new File(path));
+                setSysClipboardText(content);
+            }// end if
             break;
         default:
             break;
         }
         if (null != content && content.length() > 0) {
-            System.out.println("has copy to system clipboard:\n\t" + content);
+            System.out.println("has copy to system clipboard:\n" + content);
             content = null;
+        } else {
+
         }
     }
 
@@ -154,4 +175,29 @@ public class Main {
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(trans, null);
     }
 
+    private static boolean exist(String filename) {
+        File file = new File(filename);
+        return file.exists();
+    }
+
+    private static String readFile(final File file) {
+        final StringBuffer builder = new StringBuffer();
+        if (null != file && file.exists()) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                final InputStreamReader fileReader = new InputStreamReader(fileInputStream);
+                final BufferedReader bufferedReader = new BufferedReader(fileReader);
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    builder.append(line + "\n");
+                }
+                bufferedReader.close();
+                fileReader.close();
+                fileInputStream.close();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return builder.toString();
+    }
 }
