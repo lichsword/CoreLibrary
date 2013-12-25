@@ -83,8 +83,9 @@ public class Constants {
     /**
      * 3X3
      */
-    public static final Matrix3X3 IDENTITY_MATR_MATRIX3X3 = new Matrix3X3();
+    public static final Matrix3X3 IDENTITY_MATRIX3X3 = new Matrix3X3(new float[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 });
     /**
      * 2X2
      */
+    public static final Matrix2X2 IDENTITY_MATRIX2X2 = new Matrix2X2(new float[] { 1, 0, 0, 1 });
 }

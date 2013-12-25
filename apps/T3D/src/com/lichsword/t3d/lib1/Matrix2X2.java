@@ -10,6 +10,18 @@ public class Matrix2X2 {
 
     }
 
+    public Matrix2X2() {
+    }
+
+    public Matrix2X2(float[] value) {
+        int index = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                m[i][j] = value[index];
+            }
+        }
+    }
+
     float m[][] = new float[2][2];
 
     public float get00() {
