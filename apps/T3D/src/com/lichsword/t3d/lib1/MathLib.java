@@ -238,5 +238,114 @@ public class MathLib {
     }
 
     /* matrix clear */
+    public static final void matrixZero2X2(Matrix2X2 matrix2x2) {
+        matrix2x2.m[0][0] = 0;
+        matrix2x2.m[0][1] = 0;
+        matrix2x2.m[1][0] = 0;
+        matrix2x2.m[1][1] = 0;
+    }
+
+    public static final void matrixZero3X3(Matrix3X3 matrix3x3) {
+        matrix3x3.m[0][0] = 0;
+        matrix3x3.m[0][1] = 0;
+        matrix3x3.m[0][2] = 0;
+        matrix3x3.m[1][0] = 0;
+        matrix3x3.m[1][1] = 0;
+        matrix3x3.m[1][2] = 0;
+        matrix3x3.m[2][0] = 0;
+        matrix3x3.m[2][1] = 0;
+        matrix3x3.m[2][2] = 0;
+    }
+
+    public static final void matrixZero4X4(Matrix4X4 matrix4x4) {
+        matrix4x4.m[0][0] = 0;
+        matrix4x4.m[0][1] = 0;
+        matrix4x4.m[0][2] = 0;
+        matrix4x4.m[1][0] = 0;
+        matrix4x4.m[1][1] = 0;
+        matrix4x4.m[1][2] = 0;
+        matrix4x4.m[2][0] = 0;
+        matrix4x4.m[2][1] = 0;
+        matrix4x4.m[2][2] = 0;
+        matrix4x4.m[3][0] = 0;
+        matrix4x4.m[3][1] = 0;
+        matrix4x4.m[3][2] = 0;
+    }
+
+    public static final void matrixZero4X3(Matrix4X3 matrix4x3) {
+        matrix4x3.m[0][0] = 0;
+        matrix4x3.m[0][1] = 0;
+        matrix4x3.m[0][2] = 0;
+        matrix4x3.m[1][0] = 0;
+        matrix4x3.m[1][1] = 0;
+        matrix4x3.m[1][2] = 0;
+        matrix4x3.m[2][0] = 0;
+        matrix4x3.m[2][1] = 0;
+        matrix4x3.m[2][2] = 0;
+    }
+
+    public static final void matrixIdentity2X2(Matrix2X2 matrix2x2) {
+        matrix2x2.m[0][0] = 1;
+        matrix2x2.m[0][1] = 0;
+        matrix2x2.m[1][0] = 0;
+        matrix2x2.m[1][1] = 1;
+    }
+
+    public static final void matrixIdentity3X3(Matrix3X3 matrix3x3) {
+        matrix3x3.m[0][0] = 1;
+        matrix3x3.m[0][1] = 0;
+        matrix3x3.m[0][2] = 0;
+        matrix3x3.m[1][0] = 0;
+        matrix3x3.m[1][1] = 1;
+        matrix3x3.m[1][2] = 0;
+        matrix3x3.m[2][0] = 0;
+        matrix3x3.m[2][1] = 0;
+        matrix3x3.m[2][2] = 1;
+    }
+
+    public static final void matrixIdentity4X3(Matrix4X3 matrix4x3) {
+        matrix4x3.m[0][0] = 1;
+        matrix4x3.m[0][1] = 0;
+        matrix4x3.m[0][2] = 0;
+        matrix4x3.m[0][3] = 0;
+
+        matrix4x3.m[1][0] = 0;
+        matrix4x3.m[1][1] = 1;
+        matrix4x3.m[1][2] = 0;
+        matrix4x3.m[1][3] = 0;
+
+        matrix4x3.m[2][0] = 0;
+        matrix4x3.m[2][1] = 0;
+        matrix4x3.m[2][2] = 1;
+        matrix4x3.m[2][3] = 0;
+
+        matrix4x3.m[3][0] = 0;
+        matrix4x3.m[3][1] = 0;
+        matrix4x3.m[3][2] = 0;
+        matrix4x3.m[3][3] = 1;
+    }
+
+    public static final void matrixIdentity4X4(Matrix4X4 matrix4x4) {
+        matrix4x4.m[0][0] = 1;
+        matrix4x4.m[0][1] = 0;
+        matrix4x4.m[0][2] = 0;
+        matrix4x4.m[0][3] = 0;
+
+        matrix4x4.m[1][0] = 0;
+        matrix4x4.m[1][1] = 1;
+        matrix4x4.m[1][2] = 0;
+        matrix4x4.m[1][3] = 0;
+
+        matrix4x4.m[2][0] = 0;
+        matrix4x4.m[2][1] = 0;
+        matrix4x4.m[2][2] = 1;
+        matrix4x4.m[2][3] = 0;
+
+        matrix4x4.m[3][0] = 0;
+        matrix4x4.m[3][1] = 0;
+        matrix4x4.m[3][2] = 0;
+        matrix4x4.m[3][3] = 1;
+    }
+
     // TODO
 }
