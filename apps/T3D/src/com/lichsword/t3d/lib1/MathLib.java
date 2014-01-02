@@ -284,6 +284,7 @@ public class MathLib {
         matrix4x3.m[2][2] = 0;
     }
 
+    /* matrix identity */
     public static final void matrixIdentity2X2(Matrix2X2 matrix2x2) {
         matrix2x2.m[0][0] = 1;
         matrix2x2.m[0][1] = 0;
@@ -347,5 +348,197 @@ public class MathLib {
         matrix4x4.m[3][3] = 1;
     }
 
-    // TODO
+    /* matrix copy */
+    public static final void matrixCopy2X2(Matrix2X2 src, Matrix2X2 dest) {
+        src.m[0][0] = dest.m[0][0];
+        src.m[0][1] = dest.m[0][1];
+
+        src.m[1][0] = dest.m[1][0];
+        src.m[1][1] = dest.m[1][1];
+    }
+
+    public static final void matrixCopy3X3(Matrix3X3 src, Matrix3X3 dest) {
+        src.m[0][0] = dest.m[0][0];
+        src.m[0][1] = dest.m[0][1];
+        src.m[0][2] = dest.m[0][2];
+
+        src.m[1][0] = dest.m[1][0];
+        src.m[1][1] = dest.m[1][1];
+        src.m[1][2] = dest.m[1][2];
+
+        src.m[2][0] = dest.m[2][0];
+        src.m[2][1] = dest.m[2][1];
+        src.m[2][2] = dest.m[2][2];
+    }
+
+    public static final void matrixCopy4X4(Matrix4X4 src, Matrix4X4 dest) {
+        src.m[0][0] = dest.m[0][0];
+        src.m[0][1] = dest.m[0][1];
+        src.m[0][2] = dest.m[0][2];
+        src.m[0][3] = dest.m[0][3];
+
+        src.m[1][0] = dest.m[1][0];
+        src.m[1][1] = dest.m[1][1];
+        src.m[1][2] = dest.m[1][2];
+        src.m[1][3] = dest.m[1][3];
+
+        src.m[2][0] = dest.m[2][0];
+        src.m[2][1] = dest.m[2][1];
+        src.m[2][2] = dest.m[2][2];
+        src.m[2][3] = dest.m[2][3];
+
+        src.m[3][0] = dest.m[3][0];
+        src.m[3][1] = dest.m[3][1];
+        src.m[3][2] = dest.m[3][2];
+        src.m[3][3] = dest.m[3][3];
+    }
+
+    public static final void matrixCopy4X3(Matrix4X3 src, Matrix4X3 dest) {
+        src.m[0][0] = dest.m[0][0];
+        src.m[0][1] = dest.m[0][1];
+        src.m[0][2] = dest.m[0][2];
+        src.m[0][3] = dest.m[0][3];
+
+        src.m[1][0] = dest.m[1][0];
+        src.m[1][1] = dest.m[1][1];
+        src.m[1][2] = dest.m[1][2];
+        src.m[1][3] = dest.m[1][3];
+
+        src.m[2][0] = dest.m[2][0];
+        src.m[2][1] = dest.m[2][1];
+        src.m[2][2] = dest.m[2][2];
+        src.m[2][3] = dest.m[2][3];
+
+        src.m[3][0] = dest.m[3][0];
+        src.m[3][1] = dest.m[3][1];
+        src.m[3][2] = dest.m[3][2];
+        src.m[3][3] = dest.m[3][3];
+    }
+
+    /* matrix transpose */
+    public static final void matrixTranspose3X3(Matrix3X3 matrix3x3) {
+        Matrix3X3 mt = new Matrix3X3();
+        mt.m[0][0] = matrix3x3.m[0][0];
+        mt.m[0][1] = matrix3x3.m[1][0];
+        mt.m[0][2] = matrix3x3.m[2][0];
+        mt.m[1][0] = matrix3x3.m[0][1];
+        mt.m[1][1] = matrix3x3.m[1][1];
+        mt.m[1][2] = matrix3x3.m[2][1];
+        mt.m[2][0] = matrix3x3.m[0][2];
+        mt.m[2][1] = matrix3x3.m[1][2];
+        mt.m[2][2] = matrix3x3.m[2][2];
+        matrixCopy3X3(mt, matrix3x3);
+    }
+
+    public static final void matrixTranspose3X3(Matrix3X3 matrix3x3, Matrix3X3 mt) {
+        mt.m[0][0] = matrix3x3.m[0][0];
+        mt.m[0][1] = matrix3x3.m[1][0];
+        mt.m[0][2] = matrix3x3.m[2][0];
+        mt.m[1][0] = matrix3x3.m[0][1];
+        mt.m[1][1] = matrix3x3.m[1][1];
+        mt.m[1][2] = matrix3x3.m[2][1];
+        mt.m[2][0] = matrix3x3.m[0][2];
+        mt.m[2][1] = matrix3x3.m[1][2];
+        mt.m[2][2] = matrix3x3.m[2][2];
+        matrixCopy3X3(mt, matrix3x3);
+    }
+
+    public static final void matrixTranspose4X4(Matrix4X4 matrix4x4) {
+        Matrix4X4 mt = new Matrix4X4();
+        mt.m[0][0] = matrix4x4.m[0][0];
+        mt.m[0][1] = matrix4x4.m[1][0];
+        mt.m[0][2] = matrix4x4.m[2][0];
+        mt.m[0][3] = matrix4x4.m[3][0];
+
+        mt.m[1][0] = matrix4x4.m[0][1];
+        mt.m[1][1] = matrix4x4.m[1][1];
+        mt.m[1][2] = matrix4x4.m[2][1];
+        mt.m[1][3] = matrix4x4.m[3][1];
+
+        mt.m[2][0] = matrix4x4.m[0][2];
+        mt.m[2][1] = matrix4x4.m[1][2];
+        mt.m[2][2] = matrix4x4.m[2][2];
+        mt.m[2][3] = matrix4x4.m[3][2];
+
+        mt.m[3][0] = matrix4x4.m[0][3];
+        mt.m[3][1] = matrix4x4.m[1][3];
+        mt.m[3][2] = matrix4x4.m[2][3];
+        mt.m[3][3] = matrix4x4.m[3][3];
+
+        matrixCopy4X4(mt, matrix4x4);
+    }
+
+    public static final void matrixTranspose4X4(Matrix4X4 matrix4x4, Matrix4X4 mt) {
+        mt.m[0][0] = matrix4x4.m[0][0];
+        mt.m[0][1] = matrix4x4.m[1][0];
+        mt.m[0][2] = matrix4x4.m[2][0];
+        mt.m[0][3] = matrix4x4.m[3][0];
+
+        mt.m[1][0] = matrix4x4.m[0][1];
+        mt.m[1][1] = matrix4x4.m[1][1];
+        mt.m[1][2] = matrix4x4.m[2][1];
+        mt.m[1][3] = matrix4x4.m[3][1];
+
+        mt.m[2][0] = matrix4x4.m[0][2];
+        mt.m[2][1] = matrix4x4.m[1][2];
+        mt.m[2][2] = matrix4x4.m[2][2];
+        mt.m[2][3] = matrix4x4.m[3][2];
+
+        mt.m[3][0] = matrix4x4.m[0][3];
+        mt.m[3][1] = matrix4x4.m[1][3];
+        mt.m[3][2] = matrix4x4.m[2][3];
+        mt.m[3][3] = matrix4x4.m[3][3];
+
+        matrixCopy4X4(mt, matrix4x4);
+    }
+
+    public static final void matrixTranspose4X3(Matrix4X3 matrix4x3) {
+        Matrix4X3 mt = new Matrix4X3();
+        mt.m[0][0] = matrix4x3.m[0][0];
+        mt.m[0][1] = matrix4x3.m[1][0];
+        mt.m[0][2] = matrix4x3.m[2][0];
+        mt.m[0][3] = matrix4x3.m[3][0];
+
+        mt.m[1][0] = matrix4x3.m[0][1];
+        mt.m[1][1] = matrix4x3.m[1][1];
+        mt.m[1][2] = matrix4x3.m[2][1];
+        mt.m[1][3] = matrix4x3.m[3][1];
+
+        mt.m[2][0] = matrix4x3.m[0][2];
+        mt.m[2][1] = matrix4x3.m[1][2];
+        mt.m[2][2] = matrix4x3.m[2][2];
+        mt.m[2][3] = matrix4x3.m[3][2];
+
+        mt.m[3][0] = matrix4x3.m[0][3];
+        mt.m[3][1] = matrix4x3.m[1][3];
+        mt.m[3][2] = matrix4x3.m[2][3];
+        mt.m[3][3] = matrix4x3.m[3][3];
+
+        matrixCopy4X3(mt, matrix4x3);
+    }
+
+    public static final void matrixTranspose4X3(Matrix4X3 matrix4x3, Matrix4X3 mt) {
+        mt.m[0][0] = matrix4x3.m[0][0];
+        mt.m[0][1] = matrix4x3.m[1][0];
+        mt.m[0][2] = matrix4x3.m[2][0];
+        mt.m[0][3] = matrix4x3.m[3][0];
+
+        mt.m[1][0] = matrix4x3.m[0][1];
+        mt.m[1][1] = matrix4x3.m[1][1];
+        mt.m[1][2] = matrix4x3.m[2][1];
+        mt.m[1][3] = matrix4x3.m[3][1];
+
+        mt.m[2][0] = matrix4x3.m[0][2];
+        mt.m[2][1] = matrix4x3.m[1][2];
+        mt.m[2][2] = matrix4x3.m[2][2];
+        mt.m[2][3] = matrix4x3.m[3][2];
+
+        mt.m[3][0] = matrix4x3.m[0][3];
+        mt.m[3][1] = matrix4x3.m[1][3];
+        mt.m[3][2] = matrix4x3.m[2][3];
+        mt.m[3][3] = matrix4x3.m[3][3];
+
+        matrixCopy4X3(mt, matrix4x3);
+    }
+
 }
