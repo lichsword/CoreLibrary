@@ -30,6 +30,11 @@ public class MathLib {
         swap(pair);
         System.out.print(pair[0]);
         System.out.println(pair[1]);
+        Rect2DF rect = new Rect2DF(1.0f, 1.0f);
+        polar2DToRectXY(null, rect);
+        System.out.println("x=" + rect.x);
+        System.out.println("y" + "=" + rect.y);
+
     }
 
     private final Random random = new Random(System.currentTimeMillis());
@@ -600,6 +605,46 @@ public class MathLib {
         src.m[1] = dest.m[1];
         src.m[2] = dest.m[2];
         src.m[3] = dest.m[3];
+    }
+
+    /* 有关定点数函数 TODO */
+
+    /* triangle methods */
+    public static final float fastSin(float theta) {
+        // TODO
+        return 0;
+    }
+
+    public static final float fastCos(float theta) {
+        // TODO
+        return 0;
+    }
+
+    public static final float fastDistance2D(int x, int y) {
+        // TODO
+        return 0;
+    }
+
+    public static final float fastDistance3D(float x, float y, float z) {
+        // TODO
+        return 0;
+    }
+
+    /* coordinate methods */
+    public static final void polar2DToPoint2D(Polar2D polar, Point2DF rect) {
+        // TODO
+    }
+
+    public static final void polar2DToRectXY(Polar2D polar, Rect2DF rect) {
+        // TODO
+    }
+
+    public static final void rect2DToPolar2D(Rect2DF rect, Polar2D polar2d) {
+        // TODO
+    }
+
+    public static final void rect2DToPolarRTh(Rect2DF rect, Polar2D polar2d) {
+        // TODO
     }
 
 }
