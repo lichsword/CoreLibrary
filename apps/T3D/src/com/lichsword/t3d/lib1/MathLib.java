@@ -541,4 +541,65 @@ public class MathLib {
         matrixCopy4X3(mt, matrix4x3);
     }
 
+    /* matrix change column */
+    public static final void matrixColumnSwap2X2(Matrix2X2 matrix2x2, int columnIndex, Matrix1X2 v) {
+        matrix2x2.m[0][columnIndex] = v.m[0];
+        matrix2x2.m[1][columnIndex] = v.m[1];
+    }
+
+    public static final void matrixColumnSwap3X3(Matrix3X3 matrix3x3, int columnIndex, Matrix1X3 v) {
+        matrix3x3.m[0][columnIndex] = v.m[0];
+        matrix3x3.m[1][columnIndex] = v.m[1];
+        matrix3x3.m[2][columnIndex] = v.m[2];
+    }
+
+    public static final void matrixColumnSwap4X4(Matrix4X4 matrix4x4, int columnIndex, Matrix1X4 v) {
+        matrix4x4.m[0][columnIndex] = v.m[0];
+        matrix4x4.m[1][columnIndex] = v.m[1];
+        matrix4x4.m[2][columnIndex] = v.m[2];
+        matrix4x4.m[3][columnIndex] = v.m[3];
+    }
+
+    public static final void matrixColumnSwap4X4(Matrix4X3 matrix4x3, int columnIndex, Matrix1X4 v) {
+        matrix4x3.m[0][columnIndex] = v.m[0];
+        matrix4x3.m[1][columnIndex] = v.m[1];
+        matrix4x3.m[2][columnIndex] = v.m[2];
+        matrix4x3.m[3][columnIndex] = v.m[3];
+    }
+
+    public static final void quatZero(Quaternion quaternion) {
+        quaternion.m[0] = 0;
+        quaternion.m[1] = 0;
+        quaternion.m[2] = 0;
+        quaternion.m[3] = 0;
+    }
+
+    public static final void quatInitWithXYZW(Quaternion quaternion, float x, float y, float z, float w) {
+        quaternion.m[0] = x;
+        quaternion.m[1] = y;
+        quaternion.m[2] = z;
+        quaternion.m[3] = w;
+    }
+
+    public static final void quatInitVector3D(Quaternion quat, Vector3D v) {
+        quat.m[0] = v.x;
+        quat.m[1] = v.y;
+        quat.m[2] = v.z;
+        quat.m[4] = 0;
+    }
+
+    public static final void quatInit(Quaternion src, Quaternion dest) {
+        src.m[0] = dest.m[0];
+        src.m[1] = dest.m[1];
+        src.m[2] = dest.m[2];
+        src.m[3] = dest.m[3];
+    }
+
+    public static final void quatCopy(Quaternion src, Quaternion dest) {
+        src.m[0] = dest.m[0];
+        src.m[1] = dest.m[1];
+        src.m[2] = dest.m[2];
+        src.m[3] = dest.m[3];
+    }
+
 }
