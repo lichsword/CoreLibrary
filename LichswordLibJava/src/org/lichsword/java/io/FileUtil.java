@@ -3,6 +3,7 @@ package org.lichsword.java.io;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -40,6 +41,28 @@ public class FileUtil {
         bOut.close();
     }
 
+    public static final void copyStreamToFile(final InputStream inputStream, final File destFile) {
+        FileOutputStream fileOutputStream = null;
+        try {
+            ensureParent(destFile);
+            if (!destFile.exists()) {
+                destFile.createNewFile();
+            }
+            fileOutputStream = new FileOutputStream(destFile);
+            final byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
+            int bytesRead = inputStream.read(buffer);
+            while (bytesRead > 0) {
+                fileOutputStream.write(buffer);
+                bytesRead = inputStream.read(buffer);
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        } finally {
+            quietClose(inputStream);
+            quietClose(fileOutputStream);
+        }
+    }
+
     /**
      * ensure a dir exist.
      * 
@@ -52,6 +75,15 @@ public class FileUtil {
             return file.mkdirs();
         }// end if
         return true;
+    }
+
+    private static void ensureParent(final File file) {
+        if (null != file) {
+            final File parentFile = file.getParentFile();
+            if (null != parentFile && !parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+        }
     }
 
     /**
@@ -320,6 +352,24 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 获取文件名（含扩展名）<br/>
+     * 示例：http://xxx/foo.png 返回 foo.png
+     * 
+     * @param file
+     * @return
+     */
+    public static String getFileNameWithExtenstion(File file) {
+        return getFileNameWithExtension(file.getAbsolutePath());
+    }
+
+    /**
+     * 获取文件名（含扩展名）<br/>
+     * 示例：http://xxx/foo.png 返回 foo.png
+     * 
+     * @param filePath
+     * @return
+     */
     public static String getFileNameWithExtension(String filePath) {
         if (null == filePath || filePath.length() <= 0) {
             return null;
@@ -333,6 +383,24 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 获取文件名（不含扩展名）<br/>
+     * 示例：http://xxx/foo.png 返回 foo
+     * 
+     * @param file
+     * @return
+     */
+    public static String getFileNameWithoutExtension(File file) {
+        return getFileNameWithoutExtension(file.getAbsoluteFile());
+    }
+
+    /**
+     * 获取文件名（不含扩展名）<br/>
+     * 示例：http://xxx/foo.png 返回 foo
+     * 
+     * @param filePath
+     * @return
+     */
     public static String getFileNameWithoutExtension(String filePath) {
         String fileNameWithExt = getFileNameWithExtension(filePath);
         if (null != fileNameWithExt && fileNameWithExt.length() > 0) {
@@ -349,6 +417,21 @@ public class FileUtil {
         } else {
             return null;
         }
+    }
+
+    public static String getExtensionOfUrl(final String url) {
+        if (null == url || "".equals(url)) {
+            return null;
+        }// end if
+
+        final int index = url.lastIndexOf('.');
+        String extension;
+        if (index >= 0) {
+            extension = url.substring(index + 1);
+        } else {
+            extension = "";
+        }
+        return extension;
     }
 
     public static String readFile(String filePath) throws java.io.IOException {
@@ -381,5 +464,21 @@ public class FileUtil {
             }
         }
         return builder.toString();
+    }
+
+    /**
+     * Close an {@linkplain Closeable} quietly.
+     * 
+     * @param closeable
+     *            the {@linkplain Closeable} to close.
+     */
+    public static final void quietClose(final Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (final IOException e) {
+                // Ignore errors.
+            }
+        }
     }
 }

@@ -15,25 +15,29 @@ public class MathLib {
         int b = 2;
         int t = 0;
         // error
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(t);
-        System.out.println("swap");
+        final String testswapString = "test swap";
+        LogHelper.d(testswapString, "" + a);
+        LogHelper.d(testswapString, "" + b);
+        LogHelper.d(testswapString, "" + t);
+        LogHelper.d(testswapString, "swap");
         swap(a, b, t);
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(t);
+        LogHelper.d(testswapString, "" + a);
+        LogHelper.d(testswapString, "" + b);
+        LogHelper.d(testswapString, "" + t);
         // good
+        final String swapByArray = "swapByArray";
         int[] pair = new int[] { 1, 2 };
-        System.out.print(pair[0]);
-        System.out.println(pair[1]);
+        LogHelper.d(swapByArray, "" + pair[0]);
+        LogHelper.d(swapByArray, "" + pair[1]);
+        LogHelper.d(swapByArray, "swap");
         swap(pair);
-        System.out.print(pair[0]);
-        System.out.println(pair[1]);
+        LogHelper.d(swapByArray, "" + pair[0]);
+        LogHelper.d(swapByArray, "" + pair[1]);
+        final String polar2DToRect = "polar2DToRect";
         Rect2DF rect = new Rect2DF(1.0f, 1.0f);
         polar2DToRectXY(null, rect);
-        System.out.println("x=" + rect.x);
-        System.out.println("y" + "=" + rect.y);
+        LogHelper.d(polar2DToRect, "x=" + rect.x);
+        LogHelper.d(polar2DToRect, "y=" + rect.y);
 
     }
 
@@ -608,10 +612,21 @@ public class MathLib {
     }
 
     /* 有关定点数函数 TODO */
+    public static final void fixedPoint16Mul() {
+        // TODO
+    }
 
     /* triangle methods */
+
+    /**
+     * 通过查找表
+     * 
+     * @param theta
+     * @return
+     */
     public static final float fastSin(float theta) {
         // TODO
+        // theta = fmodf
         return 0;
     }
 
